@@ -1,0 +1,37 @@
+<div clas="row justify-content-md-center">
+    <div class="col-md-9 mx-auto">
+        <div class="quiz-form">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group" *ngIf="selected.question">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-6 ">
+                                    <h1 style="font-size: 36px;color: rgb(6, 6, 166);"><b>{{operations}} &nbsp;
+                                            Questions</b></h1>
+                                    <h2 style="color: rgb(6, 6, 166);"><b>Question No -&nbsp;{{index + 1}}</b></h2>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h2 style="margin-left: 300px;color: rgb(47, 169, 3);"><b>Hi &nbsp;{{userName}} </b>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <p style="font-size: 50px;text-align: left;padding-left: 10px;"> <b>What is...</b></p>
+                        <p style="font-size: 50px;text-align: center;">{{selected.question}}</p>
+                        <div style="font-size: 50px;text-align: center; margin-top: 50px">
+                            <input class="text-control" style="font-size: 50px;  height: 60px; color: rgb(47, 169, 3);"
+                                type="text" id="answer" placeholder="Your Answer..." name="answer"
+                                [(ngModel)]="answera">
+                        </div>
+                    </div>
+                    <div class="form-btn" style="font-size: 20px;text-align: center;">
+                        <button class="submit-btn" (click)="nextQuestion(answera)">{{questions.length ===
+                            (index+1)?'Finish':'Next'}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

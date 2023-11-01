@@ -1,0 +1,87 @@
+<div id="quiz" class="section">
+  <div class="section-center">
+    <div class="container">
+      <app-quiz #quiz [style.display]="(showQuizScreen)?'block':'none'" (finalResult)="finalResult($event)"></app-quiz>
+      <app-result #result [style.display]="(showResultScreen)?'block':'none'"
+        (showMainMenuScreen)="showMainMenuScreen($event)"></app-result>
+      <div [style.display]="(showMainMenu)?'block':'none'" class="row justify-content-md-center">
+        <div class="col-md-6 mx-auto">
+          <div class="quiz-form">
+            <div class="row">
+              <div class="col-md-12" style="text-align: center;">
+                <div class="form-group">
+                  <span class="form-label">Enter your Name</span>
+                  <div style="font-size: 20px;">
+                    <input class="text-control" style="font-size: 20px;" type="text" id="userName" name="userName"
+                      [(ngModel)]="userName">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <span class="form-label">Difficulty</span>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input style="margin-left: 20px;" type="radio" id="Easy" name="Easy" value="Easy"
+                    [(ngModel)]="difficulty">
+                  <label for="beef">Easy</label>
+
+                  <input style="margin-left: 20px;" type="radio" id="Medium" name="Medium" value="Medium"
+                    [(ngModel)]="difficulty">
+                  <label for="Medium">Medium</label>
+
+                  <input style="margin-left: 20px;" type="radio" id="Hard" name="Hard" value="Hard"
+                    [(ngModel)]="difficulty">
+                  <label for="fish">Hard</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <span class="form-label">Operations</span>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input style="margin-left: 20px;" type="radio" id="Addition" name="Addition" value="+"
+                    [(ngModel)]="operations">
+                  <label for="beef">Addition</label>
+
+                  <input style="margin-left: 20px;" type="radio" id="Multiplication" name="Multiplication" value="*"
+                    [(ngModel)]="operations">
+                  <label for="Medium">Multiplication</label>
+
+                  <input style="margin-left: 20px;" type="radio" id="Division" name="Division" value="/"
+                    [(ngModel)]="operations">
+                  <label for="fish">Division</label>
+
+                  <input style="margin-left: 20px;" type="radio" id="Subtraction" name="Subtraction" value="-"
+                    [(ngModel)]="operations">
+                  <label for="fish">Subtraction</label>
+                  <span class="select-arrow"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12" style="text-align: center;">
+                <div class="form-group">
+                  <span class="form-label">Number of Questions</span>
+                  <div>
+                    <button class="arrow-btn" (click)="decrease()"><mat-icon>keyboard_arrow_left</mat-icon> </button>
+                    <span style="margin-left: 30px;">{{ questionsLimit }}</span>
+                    <button class="arrow-btn" style="margin-left: 30px;"
+                      (click)="increase()"><mat-icon>keyboard_arrow_right</mat-icon></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-btn" style="text-align: center;">
+              <button class="submit-btn" (click)="quizQuestions()">Start Quiz</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
